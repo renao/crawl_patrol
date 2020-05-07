@@ -1,7 +1,7 @@
 require 'faraday'
 require 'nokogiri'
 
-class CrawPatrol
+class CrawlPatrol
 
     def get_episode_titles
         response = Faraday.get 'http://www.nickjr.de/paw-patrol/videos/'
@@ -21,7 +21,3 @@ class CrawPatrol
         parent_node.xpath("//div[contains(concat(' ', normalize-space(@class), ' '), ' #{class_name} ')]")
     end
 end
-
-patrol = CrawPatrol.new
-
-puts patrol.get_episode_titles
